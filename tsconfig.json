@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"outDir": "dist",
+		"experimentalDecorators": true,
+		"noImplicitAny": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true
+	},
+	"files": ["src/app.ts"]
+}

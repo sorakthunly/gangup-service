@@ -1,0 +1,1 @@
+mysql -u root -p gangup < reset_db.sql
