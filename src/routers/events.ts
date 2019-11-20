@@ -17,7 +17,6 @@ EventRouter.get('/events/public', async (context: RouterContext) => {
 });
 
 EventRouter.get('/events/:id', async (context: RouterContext) => {
-	console.log(context.params);
 	const events = await database
 		.query(Event)
 		.where(event => event.id.eq(context.params.id))
