@@ -1,7 +1,7 @@
-import { model, attr, STRING, DATETIME, TEXT, BOOLEAN, INTEGER, assoc, HAS_MANY, ENUM } from 'modelsafe';
+import { assoc, attr, BOOLEAN, DATETIME, HAS_MANY, INTEGER, model, STRING, TEXT } from 'modelsafe';
 
 import { BaseModel } from './base-model';
-import { User } from './user';
+import { Invitee } from './invitee';
 
 @model()
 export class Event extends BaseModel {
@@ -32,6 +32,6 @@ export class Event extends BaseModel {
 	@attr(BOOLEAN, { defaultValue: false })
 	shouldInviteAll: boolean;
 
-	@assoc(HAS_MANY, () => User)
-	invitees?: User[];
+	@assoc(HAS_MANY, () => Invitee)
+	invitees?: Invitee[];
 }

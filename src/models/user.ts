@@ -1,4 +1,4 @@
-import { model, attr, STRING, ENUM } from 'modelsafe';
+import { attr, ENUM, model, STRING } from 'modelsafe';
 
 import { BaseModel } from './base-model';
 

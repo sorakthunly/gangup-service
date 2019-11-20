@@ -1,15 +1,25 @@
 {
 	"name": "gangup-service",
 	"version": "1.0.0",
-	"main": "index.js",
 	"license": "MIT",
+	"main": "index.js",
 	"scripts": {
 		"clean": "rm -rf dist",
+		"eslint": "eslint --fix 'src/**/*.{js,ts,ts}'",
+		"lint": "yarn eslint && yarn prettier && yarn sortpackages",
+		"prettier": "prettier --write '{*,{src}/**/*}.{css,html,json,md,yml}'",
+		"sortpackages": "sort-package-json package.json",
 		"start": "tsc && node dist/app.js",
 		"start:auto": "nodemon --exec ./node_modules/.bin/ts-node -- src/app.ts"
 	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
 	"dependencies": {
 		"bcrypt": "3.0.7",
+		"date-fns": "^2.8.0",
 		"koa2-cors": "2.0.6",
 		"modelsafe": "2.0.3",
 		"mysql2": "2.0.1",
@@ -24,7 +34,19 @@
 		"@types/bcrypt": "3.0.0",
 		"@types/lodash": "4.14.149",
 		"@types/node": "12.12.11",
+		"@typescript-eslint/eslint-plugin": "^2.4.0",
+		"@typescript-eslint/parser": "^2.4.0",
+		"eslint": "^6.5.1",
+		"eslint-config-prettier": "^6.4.0",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-prettier": "^3.1.1",
+		"eslint-plugin-simple-import-sort": "^4.0.0",
+		"eslint-plugin-sort-class-members": "^1.6.0",
+		"husky": "^3.0.9",
+		"lint-staged": "^9.4.2",
 		"nodemon": "1.19.4",
+		"prettier": "^1.18.2",
+		"sort-package-json": "^1.22.1",
 		"ts-node": "8.5.2"
 	}
 }

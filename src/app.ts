@@ -1,10 +1,11 @@
 import { Application as Restla, ApplicationOptions, Router } from 'restla';
 
+import { seedData } from './data';
+import { routers } from './routers';
 import { database } from './utils/database';
 import { logger } from './utils/logger';
-import { routers } from './routers';
 
-const cors = require('koa2-cors');
+const cors = require('koa2-cors'); // eslint-disable-line
 const port = process.env.PORT || 4000;
 
 export class Application extends Restla {
@@ -28,8 +29,17 @@ export class Application extends Restla {
 		try {
 			await database.sync();
 		} catch (err) {
+			console.log(err);
+
 			return logger.error('Could not sync database models:', err.stack);
 		}
+
+		logger.info('Seeding data');
+
+		await seedData(database).catch(err => {
+			logger.info('Data failed to seed:', err);
+			console.log(err);
+		});
 
 		await this.listen(port, () => {
 			logger.info('Listening on port: ' + port);

@@ -1,8 +1,9 @@
 import { Database } from 'squell';
-import { logger } from './logger';
 
 import { Event } from '../models/event';
+import { Invitee } from '../models/invitee';
 import { User } from '../models/user';
+import { logger } from './logger';
 
 if (!process.env.GANGUP_DB_URL) {
 	throw new Error(`The environment variable GANGUP_DB_URL is required -
@@ -17,6 +18,7 @@ export const database = new Database(process.env.GANGUP_DB_URL, {
 const defineDatabaseModels = () => {
 	database.define(Event);
 	database.define(User);
+	database.define(Invitee);
 };
 
 defineDatabaseModels();

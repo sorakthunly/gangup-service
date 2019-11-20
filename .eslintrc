@@ -1,0 +1,46 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript",
+		"plugin:prettier/recommended",
+		"prettier/@typescript-eslint"
+	],
+	"env": {
+		"jest": true,
+		"node": true
+	},
+	"globals": {
+		"Promise": "readonly",
+		"Reflect": "readonly"
+	},
+	"plugins": ["import", "sort-class-members", "simple-import-sort"],
+	"rules": {
+		"@typescript-eslint/ban-types": "off",
+		"@typescript-eslint/explicit-member-accessibility": "off",
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/no-unused-vars": "error",
+		"@typescript-eslint/prefer-interface": "off",
+		"import/named": "off", // eslint-plugin-import not recognising type declaration
+		"require-atomic-updates": "off",
+		"simple-import-sort/sort": "error",
+		"sort-class-members/sort-class-members": [
+			"error",
+			{
+				"order": [
+					"[static-properties]",
+					"[static-methods]",
+					"[properties]",
+					"[conventional-private-properties]",
+					"constructor",
+					"[methods]",
+					"[conventional-private-methods]"
+				],
+				"accessorPairPositioning": "getThenSet"
+			}
+		]
+	},
+	"parser": "@typescript-eslint/parser"
+}

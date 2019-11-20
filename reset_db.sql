@@ -1,2 +1,2 @@
 drop database if exists gangup;
-create database gangup character set utf8;
+CREATE DATABASE gangup CHARACTER SET utf8;

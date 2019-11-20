@@ -1,4 +1,4 @@
-import { Model, attr, INTEGER, DATETIME } from 'modelsafe';
+import { attr, DATETIME, INTEGER, Model } from 'modelsafe';
 import { attr as squellAttr } from 'squell';
 
 export class BaseModel extends Model {
